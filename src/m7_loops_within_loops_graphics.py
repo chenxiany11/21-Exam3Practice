@@ -203,17 +203,15 @@ def many_hourglasses(window, square, m, colors):
     # ------------------------------------------------------------------
     number = 0
     radius = square.length_of_each_side * 0.5
-    for s in range(m):
-        center = rg.Point(square.center.x + radius * ((s + 1) ** 2 - 1), square.center.y)
+    for i in range(m):
+        center = rg.Point(square.center.x + radius * ((i + 1) ** 2 - 1), square.center.y)
         if number == len(colors):
             number = 0
-        hourglass(window, s + 1, center, radius, colors[number])
+        hourglass(window, i + 1, center, radius, colors[number])
         number = number + 1
-        rectangle = rg.Rectangle(rg.Point(center.x + (s + 1) * radius, center.y - radius * (math.sqrt(3) * s + 1)),
-                                 rg.Point(center.x - (s + 1) * radius, center.y + radius * (math.sqrt(3) * s + 1)))
+        rectangle = rg.Rectangle(rg.Point(center.x + (i + 1) * radius, center.y - radius * (math.sqrt(3) * i + 1)),
+                                 rg.Point(center.x - (i + 1) * radius, center.y + radius * (math.sqrt(3) * i + 1)))
         rectangle.attach_to(window)
-    window.render()
-
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
