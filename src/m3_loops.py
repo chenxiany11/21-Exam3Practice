@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Xianying Chen.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -134,6 +134,17 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ####################################################################
+    # test 1:
+    actual = practice_problem3(3, 4, -0.85)
+    expected = [3, 5, 6, 7]
+    print('expected answer is : ', expected)
+    print('actual answer is : ', actual)
+
+    # test 2:
+    actual = practice_problem3(3, 5, -0.85)
+    expected = [3, 5, 6, 7, 8]
+    print('expected answer is : ', expected)
+    print('actual answer is : ', actual)
 
 
 def practice_problem3(start, n, threshold):
@@ -208,7 +219,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -217,6 +228,25 @@ def practice_problem3(start, n, threshold):
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
 
+    count = 0
+    index = 0
+    new_list = []
+    if n == 0:
+        return new_list
+    elif threshold > math.sqrt(2):
+        for k in range(n):
+            new_list += [start + n]
+        return new_list
+    else:
+        while count < n:
+            if math.sin(start + index) + math.cos(start + index) > threshold:
+                new_list += [start + index]
+                count += 1
+                index += 1
+            else:
+                index += 1
+
+        return new_list
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
